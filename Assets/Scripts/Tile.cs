@@ -30,10 +30,10 @@ public class Tile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CountDownPillTimer();
+        CountDownTimer();
     }
 
-    public void CountDownPillTimer()
+    public void CountDownTimer()
     {
         if(didConsume && isPill)
         {
@@ -57,6 +57,19 @@ public class Tile : MonoBehaviour
             if (maskTimeLeft < 0)
             {
                 maskTimerText.text = "0";
+                didConsume = false;
+            }
+        }
+
+        if (didConsume && isSanitizer)
+        {
+            sanitizerTimeLeft -= Time.deltaTime;
+            Text sanitizerTimerText = GameObject.Find("SanitizerTime").GetComponent<Text>();
+            sanitizerTimerText.text = string.Format("{0}", (int)sanitizerTimeLeft);
+
+            if (sanitizerTimeLeft < 0)
+            {
+                sanitizerTimerText.text = "0";
                 didConsume = false;
             }
         }

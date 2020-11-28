@@ -224,7 +224,7 @@ public class Movements : MonoBehaviour
                 if(!tile.didConsume && (tile.isPill || tile.isMask || tile.isSanitizer)){
                     obj.GetComponent<SpriteRenderer>().enabled = false;
                     tile.didConsume = true;
-                    tile.CountDownPillTimer();
+                    tile.CountDownTimer();
                 }
             }
         }

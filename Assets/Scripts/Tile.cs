@@ -16,6 +16,9 @@ public class Tile : MonoBehaviour
     public bool didConsume;
 
     public GameObject portalReceiver;
+    PacMan pacMan;
+
+    bool increasedHealth = false;
 
     float pillTimeLeft = 60.0f;
     float maskTimeLeft = 45.0f;
@@ -24,7 +27,7 @@ public class Tile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        pacMan = GameObject.Find("PacMan").GetComponent<PacMan>();
     }
 
     // Update is called once per frame
@@ -41,10 +44,19 @@ public class Tile : MonoBehaviour
             Text pillTimerText = GameObject.Find("PillTime").GetComponent<Text>();
             pillTimerText.text = string.Format("{0}", (int)pillTimeLeft);
 
+            if (!increasedHealth)
+            {
+                pacMan.health += 5;
+                pacMan.atePill = true;
+                increasedHealth = true;
+            }
+            
             if (pillTimeLeft < 0)
             {
                 pillTimerText.text = "0";
                 didConsume = false;
+                pacMan.atePill = false;
+                increasedHealth = false;
             }
         }
 

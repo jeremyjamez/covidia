@@ -5,35 +5,60 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public int numberToSpawn;
+    public float spawnTimer;
+    public Node spawnLocation;
     public List<GameObject> spawnPool;
-    public GameObject quad;
+    private int numberSpawned;
 
     void Start()
     {
-        spawnObjects();
+        spawnPool[0].GetComponent<Virus>().virusType = Virus.VirusType.Virus1;
+        spawnPool[0].GetComponent<Virus>().isInBase = true;
+        Instantiate(spawnPool[0], spawnLocation.transform.position, spawnPool[0].transform.rotation);
+        numberSpawned = 1;
+    }
+
+    void Update()
+    {
+        SpawnVirus();
     }
 
     public void spawnObjects()
     {
-        destroyObjects();
         int randomItem = 0;
         GameObject toSpawn;
-        MeshCollider c = quad.GetComponent<MeshCollider>();
 
-        float screenX, screenY;
-        Vector2 pos;
-
-        for (int i = 0; i < numberToSpawn; i++)
+        for (int i = 1; i < numberToSpawn; i++)
         {
             randomItem = Random.Range(0, spawnPool.Count);
             toSpawn = spawnPool[randomItem];
 
-            screenX = Random.Range(c.bounds.min.x, c.bounds.max.x);
-            screenY = Random.Range(c.bounds.min.y, c.bounds.max.y);
-            pos = new Vector2(screenX, screenY);
+            if (spawnTimer < 0)
+            {
+                Instantiate(toSpawn, spawnLocation.transform.position, toSpawn.transform.rotation);
+                spawnTimer = 5;
+            }
+            numberSpawned = i;
 
-            Instantiate(toSpawn, pos, toSpawn.transform.rotation);
+            if (numberSpawned == numberToSpawn) break;
+        }
 
+    }
+
+    void SpawnVirus()
+    {
+        if (numberSpawned < numberToSpawn)
+        {
+            spawnTimer -= Time.deltaTime;
+
+            if (spawnTimer < 0)
+            {
+                spawnPool[0].GetComponent<Virus>().virusType = (Virus.VirusType)numberSpawned;
+                spawnPool[0].GetComponent<Virus>().isInBase = true;
+                Instantiate(spawnPool[0], spawnLocation.transform.position, spawnPool[0].transform.rotation);
+                spawnTimer = 5;
+                numberSpawned++;
+            }
         }
     }
 

@@ -56,10 +56,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\GameBoard.cs" />
-     <Compile Include="Assets\Scripts\Movements.cs" />
      <Compile Include="Assets\Scripts\Node.cs" />
+     <Compile Include="Assets\Scripts\PacMan.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\Tile.cs" />
+     <Compile Include="Assets\Scripts\Virus.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.13f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

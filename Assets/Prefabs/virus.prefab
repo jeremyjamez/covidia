@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6949696578565688764}
   - component: {fileID: 6949696578565688765}
+  - component: {fileID: -6261574778107698693}
   m_Layer: 0
   m_Name: virus
-  m_TagString: Spawnable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,3 +82,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-6261574778107698693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6949696578565688767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7831fbba1a3e1c94aa32fb427c5a4d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3.9
+  virusTimer: 0
+  isInBase: 1
+  startingPosition: {fileID: 0}
+  scatterModeTimer1: 7
+  chaseModeTimer1: 20
+  scatterModeTimer2: 7
+  chaseModeTimer2: 20
+  scatterModeTimer3: 5
+  chaseModeTimer3: 20
+  scatterModeTimer4: 5
+  chaseModeTimer4: 20
+  virusType: 3

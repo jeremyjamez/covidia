@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Spawnable
+  - PacMan
+  - Virus
+  - Mask
+  - Sanitizer
   layers:
   - Default
   - TransparentFX

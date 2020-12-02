@@ -2,10 +2,10 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - GameBoard
-    - Movements
     - Node
-    - Spawner
+    - PacMan
     - Tile
+    - Virus
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
@@ -16,15 +16,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateMachineNode
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
-    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -45,17 +36,9 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 21
       Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
     - Class: 28
       Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
-      Script: {instanceID: 0}
     - Class: 48
-      Script: {instanceID: 0}
-    - Class: 64
       Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
@@ -76,17 +59,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12322}
     - Class: 114
-      Script: {instanceID: 12844}
-    - Class: 114
       Script: {instanceID: 13006}
     - Class: 114
-      Script: {instanceID: 13486}
+      Script: {instanceID: 13420}
     - Class: 114
-      Script: {instanceID: 13746}
+      Script: {instanceID: 13488}
     - Class: 114
-      Script: {instanceID: 14114}
+      Script: {instanceID: 13748}
     - Class: 114
-      Script: {instanceID: 14360}
+      Script: {instanceID: 14116}
+    - Class: 114
+      Script: {instanceID: 14362}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -374,7 +357,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: 1ad1d87e1df6e26e2ed1de083ed78e23
+      Hash: b1d9176c4e0ac6e50da4f4e045115a03
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Spawner
@@ -398,10 +381,10 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
-      Hash: 139785b3a476635466109556c8d3b02d
+      Hash: c0113b1b80d8ff89767833c90c503a4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Movements
+    className: PacMan
   - hash:
       serializedVersion: 2
       Hash: f84d945e5e1ca985698660fc26e9657f
@@ -468,6 +451,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: Physics2DRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: ac654fd6ca7a11e1b4b9b2e6a29e2c07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Virus
   - hash:
       serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
@@ -621,4 +610,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/Level1.unity
-  playerPath: C:/Users/romar/OneDrive/Documents/Utech/Year 4/Sem 1/TOC/Project/Covidia.exe
+  playerPath: C:/Users/romar/OneDrive/Documents/Utech/Year 4/Sem 1/TOC/Project/Covidia/Publish/Covidia.exe

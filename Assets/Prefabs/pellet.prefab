@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4054805603444884}
   - component: {fileID: 212342837857898752}
+  - component: {fileID: 4860535573328553720}
+  - component: {fileID: 5783628503270482189}
   m_Layer: 0
   m_Name: pellet
   m_TagString: Untagged
@@ -81,3 +83,35 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4860535573328553720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445385941526110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5c9e1508e57de4ebd672699beaa4fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPortal: 0
+  isPill: 0
+  isMask: 0
+  isSanitizer: 0
+  didConsume: 0
+  portalReceiver: {fileID: 0}
+--- !u!114 &5783628503270482189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445385941526110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8938e0b17eb51b4a9a00064f98e4b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  validDirections: []

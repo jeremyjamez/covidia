@@ -13,28 +13,27 @@ public class PacMan : MonoBehaviour
 
     public bool atePill = false;
 
-    bool wearingMask = false;
+    public bool wearingMask = false;
 
-    bool hasSanitized = false;
-
-    public bool infected = false;
+    public bool hasSanitized = false;
 
     public Sprite idleSprite;
 
-    Virus virus;
+    public bool isImmune = false;
+    public bool canMove = true;
 
     private Vector2 direction = Vector2.zero;
     private Vector2 nextDirection;
 
     private Node currentNode, previousNode, targetNode;
-    Text healthText;
+    public Node startingPosition;
+    Text livesText;
 
     // Start is called before the first frame update
     void Start()
     {
-        virus = GameObject.FindGameObjectWithTag("Virus").GetComponent<Virus>();
-        healthText = GameObject.Find("Health").GetComponent<Text>();
-        healthText.text = string.Format("{0}", health);
+        livesText = GameObject.Find("Lives").GetComponent<Text>();
+        livesText.text = string.Format("{0}", GameObject.Find("Game").transform.GetComponent<GameBoard>().pacManLives);
         Node node = GetNodeAtPosition(transform.localPosition);
         if(node != null){
             currentNode = node;
@@ -44,16 +43,39 @@ public class PacMan : MonoBehaviour
         ChangePosition(direction);
     }
 
+    public void MoveToStartingPosition()
+    {
+        transform.position = startingPosition.transform.position;
+
+        direction = Vector2.left;
+        orientation = Vector2.left;
+
+        UpdateOrientation();
+    }
+
+    public void Restart()
+    {
+        canMove = true;
+        currentNode = startingPosition;
+        nextDirection = Vector2.left;
+        transform.GetComponent<Animator>().enabled = true;
+
+        ChangePosition(direction);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        CheckInput();
-        Move();
-        CheckCollision();
-        UpdateOrientation();
-        UpdateAnimationState();
-        ConsumePill();
-        healthText.text = string.Format("{0}", health);
+        if (canMove)
+        {
+            CheckInput();
+            Move();
+            UpdateOrientation();
+            UpdateAnimationState();
+            ConsumePill();
+
+            livesText.text = string.Format("{0}", GameObject.Find("Game").transform.GetComponent<GameBoard>().pacManLives);
+        }
     }
 
     void CheckInput()
@@ -139,14 +161,6 @@ public class PacMan : MonoBehaviour
         }
     }
 
-    void MoveToNode(Vector2 d){
-        Node moveToNode = CanMove(d);
-        if(moveToNode != null){
-            transform.localPosition = moveToNode.transform.position;
-            currentNode = moveToNode;
-        }
-    }
-
     void UpdateOrientation()
     {
 
@@ -219,13 +233,17 @@ public class PacMan : MonoBehaviour
         return vec.sqrMagnitude;
     }
 
-    GameObject GetPortal(Vector2 pos){
+    GameObject GetPortal(Vector2 pos)
+    {
         GameObject tile = GameObject.Find("Game").GetComponent<GameBoard>().board[(int)pos.x, (int)pos.y];
 
-        if(tile != null){
+        if(tile != null)
+        {
 
-            if(tile.GetComponent<Tile>() != null){
-                if(tile.GetComponent<Tile>().isPortal){
+            if(tile.GetComponent<Tile>() != null)
+            {
+                if(tile.GetComponent<Tile>().isPortal)
+                {
                     GameObject otherPortal = tile.GetComponent<Tile>().portalReceiver;
                     return otherPortal;
                 }
@@ -245,23 +263,7 @@ public class PacMan : MonoBehaviour
                 if(!tile.didConsume && (tile.isPill || tile.isMask || tile.isSanitizer)){
                     obj.GetComponent<SpriteRenderer>().enabled = false;
                     tile.didConsume = true;
-                    tile.CountDownTimer();
                 }
-            }
-        }
-    }
-
-    public void CheckCollision()
-    {
-        Rect virusRect = new Rect(virus.transform.position, transform.GetComponent<SpriteRenderer>().sprite.bounds.size / 4);
-        Rect pacmanRect = new Rect(transform.position, GetComponent<SpriteRenderer>().sprite.bounds.size / 4);
-
-        if (virusRect.Overlaps(pacmanRect))
-        {
-            if (!atePill)
-            {
-                health--;
-                infected = true;
             }
         }
     }

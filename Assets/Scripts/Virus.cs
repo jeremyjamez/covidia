@@ -13,6 +13,7 @@ public class Virus : MonoBehaviour
     public float virusTimer = 0;
 
     public bool isInBase = false;
+    public bool canMove = true;
 
     public Node startingPosition;
 
@@ -42,7 +43,6 @@ public class Virus : MonoBehaviour
         if (node != null)
         {
             currentNode = node;
-            //startingPosition = currentNode;
         }
 
         if (isInBase)
@@ -60,14 +60,58 @@ public class Virus : MonoBehaviour
 
     }
 
+    public void MoveToStartingPosition()
+    {
+        if (transform.name != "virus")
+            isInBase = true;
+
+        transform.position = startingPosition.transform.position;
+
+        if (isInBase)
+        {
+            direction = Vector2.up;
+        }
+        else
+        {
+            direction = Vector2.left;
+        }
+    }
+
+    public void Restart()
+    {
+        canMove = true;
+
+        virusTimer = 0;
+
+        if (transform.name != "virus")
+            isInBase = true;
+
+        currentNode = startingPosition;
+
+        if (isInBase)
+        {
+            direction = Vector2.up;
+            targetNode = currentNode.neighbours[0];
+        }
+        else
+        {
+            direction = Vector2.left;
+            targetNode = ChooseNextNode();
+        }
+        previousNode = currentNode;
+    }
+
     //Update called once per frame
     void Update()
     {
-        Move();
+        if (canMove)
+        {
+            Move();
 
-        ReleaseVirus();
+            ReleaseVirus();
 
-        //CheckCollision();
+            CheckCollision();
+        }
     }
 
     void Move()
@@ -365,8 +409,10 @@ public class Virus : MonoBehaviour
 
         if (virusRect.Overlaps(pacmanRect))
         {
-            if(!pacMan.GetComponent<PacMan>().atePill)
-                pacMan.GetComponent<PacMan>().health--;
+            if (!pacMan.transform.GetComponent<PacMan>().isImmune)
+            {
+                GameObject.Find("Game").transform.GetComponent<GameBoard>().StartDeath();
+            }
         }
     }
 }

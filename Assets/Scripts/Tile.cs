@@ -18,7 +18,8 @@ public class Tile : MonoBehaviour
     public GameObject portalReceiver;
     PacMan pacMan;
 
-    bool increasedHealth = false;
+    bool increasedLives = false;
+    bool immune = false;
 
     float pillTimeLeft = 60.0f;
     float maskTimeLeft = 45.0f;
@@ -44,19 +45,19 @@ public class Tile : MonoBehaviour
             Text pillTimerText = GameObject.Find("PillTime").GetComponent<Text>();
             pillTimerText.text = string.Format("{0}", (int)pillTimeLeft);
 
-            if (!increasedHealth)
+            if (!increasedLives)
             {
-                pacMan.health += 5;
-                pacMan.atePill = true;
-                increasedHealth = true;
+                GameObject.Find("Game").transform.GetComponent<GameBoard>().pacManLives += 1;
+                pacMan.isImmune = true;
+                increasedLives = true;
             }
             
             if (pillTimeLeft < 0)
             {
                 pillTimerText.text = "0";
                 didConsume = false;
-                pacMan.atePill = false;
-                increasedHealth = false;
+                pacMan.isImmune = false;
+                increasedLives = false;
             }
         }
 
@@ -65,11 +66,19 @@ public class Tile : MonoBehaviour
             maskTimeLeft -= Time.deltaTime;
             Text maskTimerText = GameObject.Find("MaskTime").GetComponent<Text>();
             maskTimerText.text = string.Format("{0}", (int)maskTimeLeft);
+            //GameObject.Find("Game").transform.GetComponent<GameBoard>().score += 10;
+            if (!immune)
+            {
+                pacMan.isImmune = true;
+                immune = true;
+            }
 
             if (maskTimeLeft < 0)
             {
                 maskTimerText.text = "0";
                 didConsume = false;
+                pacMan.isImmune = false;
+                immune = false;
             }
         }
 
@@ -78,11 +87,20 @@ public class Tile : MonoBehaviour
             sanitizerTimeLeft -= Time.deltaTime;
             Text sanitizerTimerText = GameObject.Find("SanitizerTime").GetComponent<Text>();
             sanitizerTimerText.text = string.Format("{0}", (int)sanitizerTimeLeft);
+            //GameObject.Find("Game").transform.GetComponent<GameBoard>().score += 10;
+
+            if (!immune)
+            {
+                pacMan.isImmune = true;
+                immune = true;
+            }
 
             if (sanitizerTimeLeft < 0)
             {
                 sanitizerTimerText.text = "0";
                 didConsume = false;
+                pacMan.isImmune = false;
+                immune = false;
             }
         }
     }

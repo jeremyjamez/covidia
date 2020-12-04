@@ -46438,8 +46438,8 @@ MonoBehaviour:
   - {fileID: 1793432554}
   - {fileID: 823667964}
   validDirections:
-  - {x: 1, y: 0}
   - {x: -1, y: 0}
+  - {x: 1, y: 0}
 --- !u!4 &2064953395 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4054805603444884, guid: 1eef10b537c7c4257a9308f7088fbc19,

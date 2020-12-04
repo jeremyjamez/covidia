@@ -9,14 +9,6 @@ public class PacMan : MonoBehaviour
 
     public float speed = 4.0f;
 
-    public int health = 10;
-
-    public bool atePill = false;
-
-    public bool wearingMask = false;
-
-    public bool hasSanitized = false;
-
     public Sprite idleSprite;
 
     public bool isImmune = false;
@@ -104,7 +96,8 @@ public class PacMan : MonoBehaviour
 
         if(currentNode != null){
             Node moveToNode = CanMove(d);
-            if(moveToNode != null){
+
+            if (moveToNode != null){
                 direction = d;
                 targetNode = moveToNode;
                 previousNode = currentNode;
@@ -136,13 +129,12 @@ public class PacMan : MonoBehaviour
 
                 if(otherPortal != null){
                     transform.localPosition = otherPortal.transform.position;
-
                     currentNode = otherPortal.GetComponent<Node>();
                 }
-
+                
                 Node moveToNode = CanMove(nextDirection);
-
-                if(moveToNode != null)
+                
+                if (moveToNode != null)
                     direction = nextDirection;
 
                 if(moveToNode == null)

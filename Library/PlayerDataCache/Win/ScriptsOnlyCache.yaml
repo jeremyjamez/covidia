@@ -48,21 +48,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11268}
+      Script: {instanceID: 11266}
     - Class: 114
-      Script: {instanceID: 11556}
+      Script: {instanceID: 11554}
     - Class: 114
-      Script: {instanceID: 11610}
+      Script: {instanceID: 11608}
     - Class: 114
-      Script: {instanceID: 12276}
+      Script: {instanceID: 12274}
     - Class: 114
-      Script: {instanceID: 12982}
+      Script: {instanceID: 12980}
     - Class: 114
-      Script: {instanceID: 13750}
+      Script: {instanceID: 13748}
     - Class: 114
-      Script: {instanceID: 14364}
+      Script: {instanceID: 14362}
     - Class: 114
-      Script: {instanceID: 14462}
+      Script: {instanceID: 14460}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -103,25 +103,25 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11268}
+      Script: {instanceID: 11266}
     - Class: 114
-      Script: {instanceID: 11556}
+      Script: {instanceID: 11554}
     - Class: 114
-      Script: {instanceID: 12276}
+      Script: {instanceID: 12274}
     - Class: 114
-      Script: {instanceID: 12324}
+      Script: {instanceID: 12322}
     - Class: 114
-      Script: {instanceID: 13008}
+      Script: {instanceID: 13006}
     - Class: 114
-      Script: {instanceID: 13422}
+      Script: {instanceID: 13420}
     - Class: 114
-      Script: {instanceID: 13490}
+      Script: {instanceID: 13488}
     - Class: 114
-      Script: {instanceID: 13750}
+      Script: {instanceID: 13748}
     - Class: 114
-      Script: {instanceID: 14118}
+      Script: {instanceID: 14116}
     - Class: 114
-      Script: {instanceID: 14364}
+      Script: {instanceID: 14362}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -409,12 +409,6 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: b1d9176c4e0ac6e50da4f4e045115a03
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Spawner
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -433,7 +427,7 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
-      Hash: 0171ac569c387ee8df57654140b38e5c
+      Hash: 252e3e41e08488e9a09b25bdbb5024f7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PacMan

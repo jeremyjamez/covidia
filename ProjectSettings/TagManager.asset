@@ -8,6 +8,7 @@ TagManager:
   - Virus
   - Mask
   - Sanitizer
+  - Portal
   layers:
   - Default
   - TransparentFX

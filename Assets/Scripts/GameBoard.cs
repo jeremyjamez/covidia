@@ -25,7 +25,7 @@ public class GameBoard : MonoBehaviour
         foreach(GameObject obj in objects){
             Vector2 position = obj.transform.position;
 
-            if(obj.name != "PacMan" && obj.name != "Nodes" && obj.name != "Maze" && obj.tag != "Virus" && obj.name != "Canvas" && obj.name != "PlayerText" && obj.name != "ReadyText"){
+            if(obj.name != "PacMan" && obj.name != "Nodes" && obj.name != "Maze" && obj.tag != "Virus" && obj.name != "Canvas" && obj.name != "PlayerText" && obj.name != "ReadyText" && obj.tag != "Portal"){
                 board[(int)position.x, (int)position.y] = obj;
             }
         }

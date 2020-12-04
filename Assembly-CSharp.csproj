@@ -59,7 +59,6 @@
      <Compile Include="Assets\Scripts\GameMenuScript.cs" />
      <Compile Include="Assets\Scripts\Node.cs" />
      <Compile Include="Assets\Scripts\PacMan.cs" />
-     <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\Tile.cs" />
      <Compile Include="Assets\Scripts\Virus.cs" />
  <Reference Include="UnityEngine">
